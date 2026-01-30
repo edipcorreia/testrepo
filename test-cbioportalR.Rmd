@@ -38,7 +38,7 @@ set_cbioportal_db(db = "public")
 
 Great success! Now let's have a look at what we're dealing with...
 
-```{r available_studies}
+```{r available_samples}
 available_studies() %>% 
   head(n = 10)
 
@@ -49,6 +49,16 @@ Lot's of variables, maybe it's easier to check which one's are the most useful.
 ```{r check columns}
 colnames(available_studies())
 
+available_studies() %>%
+  group_by(name)
+
+cbio_datasets <- available_studies()
+
+str_detect(cbio_datasets$studyId, "pan_can") -> pan_can
+
+#Figure how to select only the columns that are TRUE for pan_can
+available_studies() %>% 
+  select(pan_can)
 
 ```
 
