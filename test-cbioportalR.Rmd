@@ -31,7 +31,7 @@ library("tidyverse")
 
 Set the `cbioportal` database
 
-```{r database_setup}
+```{r database setup}
 set_cbioportal_db(db = "public")
 
 ```
@@ -41,6 +41,14 @@ Great success! Now let's have a look at what we're dealing with...
 ```{r available_studies}
 available_studies() %>% 
   head(n = 10)
+
+```
+
+Lot's of variables, maybe it's easier to check which one's are the most useful.
+
+```{r check columns}
+colnames(available_studies())
+
 
 ```
 
